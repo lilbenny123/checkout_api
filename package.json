@@ -9,9 +9,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build:dev": "yarn run clean && webpack --mode development -w",
-    "dev": "cross-env NODE_ENV=development nodemon dist/server.bundle.js",
-    "start":
-      "concurrently --kill-others \"yarn run build:dev\" \" yarn run dev\" "
+    "dev": "cross-env NODE_ENV=development nodemon ./dist/server.bundle.js",
+    "start": "concurrently \"yarn build:dev\" \" yarn dev\""
   },
   "dependencies": {
     "bcrypt": "^2.0.1",

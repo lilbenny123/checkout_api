@@ -1,12 +1,12 @@
-import HTTPStatus from 'http-status';
-import User from '../models/User';
-import PriceRule from '../models/PriceRule';
+import HTTPStatus from "http-status";
+import User from "../models/User";
+import PriceRule from "../models/PriceRule";
 
 module.exports = {
   signUp: async (req, res) => {
     try {
       const user = await User.create(req.body);
-      return res.status(HTTPStatus.CREATED).json(user.toAuthJSON());
+      return res.status(HTTPStatus.CREATED).json(user.toJSON());
     } catch (e) {
       return res.status(HTTPStatus.BAD_REQUEST).json(e);
     }
@@ -19,7 +19,7 @@ module.exports = {
   fetchUserById: async (req, res) => {
     try {
       const { userId } = req.params;
-      const user = await User.findById(userId).populate('pricerules');
+      const user = await User.findById(userId).populate("pricerules");
       return res.status(HTTPStatus.OK).json(user);
     } catch (e) {
       console.log(e);
@@ -36,5 +36,5 @@ module.exports = {
     } catch (e) {
       return res.status(HTTPStatus.BAD_REQUEST).json(e);
     }
-  },
+  }
 };
