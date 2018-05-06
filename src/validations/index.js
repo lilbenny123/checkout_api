@@ -1,6 +1,6 @@
-import Joi from 'joi';
+import Joi from "joi";
 
-import { passwordReg } from '../common/helpers';
+import { passwordReg } from "../common/helpers";
 
 export default {
   signup: {
@@ -13,14 +13,21 @@ export default {
         .regex(passwordReg)
         .required(),
       firstName: Joi.string().required(),
-      lastName: Joi.string().required(),
-    },
+      lastName: Joi.string().required()
+    }
   },
   createrule: {
     body: {
       name: Joi.string().required(),
       ruleType: Joi.string().required(),
-      min_ads: Joi.string().required(),
-    },
+      min_ads: Joi.number().required()
+    }
   },
+  createJobAd: {
+    body: {
+      name: Joi.string().required(),
+      adType: Joi.string().required(),
+      price: Joi.number().required()
+    }
+  }
 };
