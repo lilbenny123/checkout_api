@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import compression from "compression";
 import helmet from "helmet";
 import passport from "passport";
-import cors from "cors";
 
 const isProd = process.env.NODE_ENV === "production";
 const isDev = process.env.NODE_ENV === "development";
